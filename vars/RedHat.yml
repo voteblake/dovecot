@@ -1,5 +1,7 @@
 ---
 # Define variables for RedHat flavored OS's
 
+dovecot_config_dir: '/etc/dovecot'
+dovecot_service: 'dovecot'
 dovecot_packages:
   - 'dovecot'
