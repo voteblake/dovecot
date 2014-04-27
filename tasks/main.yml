@@ -8,3 +8,12 @@
   yum: name={{ item }} state=latest
   with_items: dovecot_packages
   when: ansible_os_family == 'RedHat'
+
+- name: Write Dovecot configuration template
+  template: >
+    src=dovecot-conf.j2
+    dest={{ dovecot_config_dir }}/dovecot.conf
+    mode=0644 owner=root group=root
+    backup=yes
+  notify:
+    - restart dovecot
