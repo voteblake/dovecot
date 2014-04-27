@@ -1,0 +1,10 @@
+# {{ ansible_managed }}
+
+protocols = imap imaps pop3 pop3s
+mail_location = maildir:~/Maildir
+pop3_uidl_format = %08Xu%08Xv
+
+# Required on x86_64 kernels
+{{% if ansible_architecture == "x86_64" %}}
+login_process_size = 64
+{{% endif %}}

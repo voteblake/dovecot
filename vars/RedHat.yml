@@ -1,0 +1,5 @@
+---
+# Define variables for RedHat flavored OS's
+
+dovecot_packages:
+  - 'dovecot'

@@ -1,2 +1,19 @@
 ---
-# handlers file for dovecot
+# Handlers for Dovecot notifications.
+
+- name: stop dovecot
+  service: >
+    name={{ dovecot_service }}
+    state=stopped
+
+- name: start dovecot
+  service: >
+    name={{ dovecot_service }}
+    state=started
+    enabled=yes
+
+- name: restart dovecot
+  service: >
+    name={{ dovecot_service }}
+    state=restarted
+    enabled=yes

@@ -1,2 +1,10 @@
 ---
 # tasks file for dovecot
+
+- name: Include the OS specific varibles
+  include_vars: "{{ ansible_os_family }}.yml"
+
+- name: Install RedHat specific packages
+  yum: name={{ item }} state=latest
+  with_items: dovecot_packages
+  when: ansible_os_family == 'RedHat'
